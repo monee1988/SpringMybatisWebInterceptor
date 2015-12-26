@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Class-Path: jconsole.jar spring-context-4.1.6.RELEASE.jar ehcache-core
+ -2.0.0.jar fastjson-1.1.41.jar spring-beans-4.1.6.RELEASE.jar spring-
+ jdbc-4.1.6.RELEASE.jar rapid-core-4.0.jar spring-jms-4.1.6.RELEASE.ja
+ r spring-core-4.1.6.RELEASE.jar mysql-connector-java-5.1.36.jar mybat
+ is-spring-1.2.2.jar aspectjweaver-1.8.5.jar spring-aspects-4.1.6.RELE
+ ASE.jar druid-1.0.15.jar slf4j-api-1.7.13.jar commons-logging-1.2.jar
+  spring-web-4.1.6.RELEASE.jar log4j-1.2.17.jar spring-webmvc-4.1.6.RE
+ LEASE.jar mybatis-3.2.8.jar spring-messaging-4.1.6.RELEASE.jar spring
+ -expression-4.1.6.RELEASE.jar spring-orm-4.1.6.RELEASE.jar spring-web
+ socket-4.1.6.RELEASE.jar spring-aop-4.1.6.RELEASE.jar aopalliance-1.0
+ .jar spring-context-support-4.1.6.RELEASE.jar spring-tx-4.1.6.RELEASE
+ .jar tools.jar mybatis-ehcache-1.0.0.jar
+

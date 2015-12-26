@@ -1,3 +1,10 @@
+/**
+ * @(#){Page}.java 1.0 {15/12/26}
+ *
+ * Copyright 2015 greatpwx@126.com, All rights reserved.
+ * Use is subject to license terms.
+ * https://github.com/monee1988/SpringMybatisWebInterceptor
+ */
 package com.monee1988.core.entity;
 
 import org.springframework.util.StringUtils;
@@ -10,38 +17,60 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * 与具体ORM实现无关的分页参数及查询结果封装.
- * <p/>
- *
+ * 分页对象
+ * Created by codePWX on 15-12-26.
  * @param <T> Page中记录的类型.
  */
 public class Page<T> {
-    //-- 公共变量 --//
+
+
+    /*公共变量 默认正序**/
     public static final String ASC = "asc";
+
+    /*公共变量 默认倒序*/
     public static final String DESC = "desc";
+
+    /*默认的分页页码容量*/
     public static final int DEFAULT_PAGESIZE =10;
+
+    /*默认页码*/
     public static final int DEFAULT_PAGENO= 1;
 
-    //-- 分页参数 --//
-    protected int pageNo = 1;
-    protected int pageSize = -1;
+    /*页码*/
+    protected int pageNo = DEFAULT_PAGENO;
+
+    /*每一页数据容量*/
+    protected int pageSize = DEFAULT_PAGESIZE;
+
+    /*排序*/
     protected String orderBy = null;
+
+    /*排序方式*/
     protected String order = null;
     protected boolean autoCount = true;
 
-    private int startPageIndex; // 显示的页码列表的�?��索引
-    private int endPageIndex; // 显示的页码列表的结束索引
-    private int pageCount; //总页�?
+    /*显示的页码列表的开始索引*/
+    private int startPageIndex;
+
+    /*显示的页码列表的结束索引*/
+    private int endPageIndex;
+
+    /*总页数*/
+    private int pageCount;
 
     private Map<?,?> extend; // page扩展信息
 
-    //-- 返回结果 --//
-    private List<T> result = new ArrayList<T>();
+    /*返回结果*/
+    private List<T> resultList = new ArrayList<T>();
+
+    /*总记录数*/
     private long totalCount = -1;
+
+    /*当前查询的SQL*/
     private String sql;
 
-    //-- 构�?函数 --//
     public Page() {
+
     }
 
     public Page<T> end() {
@@ -89,7 +118,6 @@ public class Page<T> {
     }
 
     //-- 分页参数访问函数 --//
-
     public Page(HttpServletRequest request, HttpServletResponse response) {
     	request.getParameterMap();
     	String pageNoStr = request.getParameter("pageNo");
@@ -107,14 +135,14 @@ public class Page<T> {
 	}
 
 	/**
-     * 获得当前页的页号,序号�?�?��,默认�?.
+     * 获得当前页的页号
      */
     public int getPageNo() {
         return pageNo;
     }
 
     /**
-     * 设置当前页的页号,序号�?�?��,低于1时自动调整为1.
+     * 设置当前页的页号,低于1时自动调整为1.
      */
     public void setPageNo(final int pageNo) {
         this.pageNo = pageNo;
@@ -133,14 +161,15 @@ public class Page<T> {
     }
 
     /**
-     * 获得每页的记录数�? 默认�?1.
+     * 获得每页的记录数默认1.
      */
     public int getPageSize() {
+
         return pageSize;
     }
 
     /**
-     * 设置每页的记录数�?
+     * 设置每页的记录数
      */
     public void setPageSize(final int pageSize) {
         this.pageSize = pageSize;
@@ -245,33 +274,19 @@ public class Page<T> {
         return this;
     }
 
-    //-- 访问查询结果函数 --//
-
-    /**
-     * 获得页内的记录列�?
-     */
-    public List<T> getResult() {
-        return result;
+    public List<T> getResultList() {
+        return resultList;
     }
 
-    /**
-     * 设置页内的记录列�?
-     */
-    public void setResult(final List<T> result) {
-        this.result = result;
+    public void setResultList(List<T> resultList) {
+        this.resultList = resultList;
     }
 
-    /**
-     * 获得总记录数, 默认值为-1.
-     */
     public long getTotalCount() {
         return totalCount;
     }
 
-    /**
-     * 设置总记录数.
-     */
-    public void setTotalCount(final long totalCount) {
+    public void setTotalCount(long totalCount) {
         this.totalCount = totalCount;
     }
 
@@ -291,14 +306,14 @@ public class Page<T> {
     }
 
     /**
-     * 是否还有下一�?
+     * 是否还有下一页
      */
     public boolean isHasNext() {
         return (pageNo + 1 <= getTotalPages());
     }
 
     /**
-     * 取得下页的页�? 序号�?�?��.
+     * 取得下页的页码
      * 当前页为尾页时仍返回尾页序号.
      */
     public int getNextPage() {
@@ -310,14 +325,14 @@ public class Page<T> {
     }
 
     /**
-     * 是否还有上一�?
+     * 是否还有上一页
      */
     public boolean isHasPre() {
         return (pageNo - 1 >= 1);
     }
 
     /**
-     * 取得上页的页�? 序号�?�?��.
+     * 取得上页的页码
      * 当前页为首页时返回首页序�?
      */
     public int getPrePage() {
@@ -353,41 +368,33 @@ public class Page<T> {
         return pageSize * pageNo;
     }
 
-
     public int getStartPageIndex() {
         return startPageIndex;
     }
-
 
     public void setStartPageIndex(int startPageIndex) {
         this.startPageIndex = startPageIndex;
     }
 
-
     public int getEndPageIndex() {
         return endPageIndex;
     }
-
 
     public void setEndPageIndex(int endPageIndex) {
         this.endPageIndex = endPageIndex;
     }
 
-
     public int getPageCount() {
         return pageCount;
     }
-
 
     public void setPageCount(int pageCount) {
         this.pageCount = pageCount;
     }
 
-
     public Map<?,?> getExtend() {
         return extend;
     }
-
 
     public void setExtend(Map<?,?> extend) {
         this.extend = extend;

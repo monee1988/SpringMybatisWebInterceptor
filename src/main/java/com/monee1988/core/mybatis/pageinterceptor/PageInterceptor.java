@@ -1,3 +1,10 @@
+/**
+ * @(#){PageInterceptor}.java 1.0 {15/12/26}
+ *
+ * Copyright 2015 greatpwx@126.com, All rights reserved.
+ * Use is subject to license terms.
+ * https://github.com/monee1988/SpringMybatisWebInterceptor
+ */
 package com.monee1988.core.mybatis.pageinterceptor;
 
 import cn.org.rapid_framework.ibatis3.plugin.OffsetLimitInterceptor;

@@ -1,3 +1,10 @@
+/**
+ * @(#){MybatisSqlSessionFactoryBean}.java 1.0 {15/12/26}
+ *
+ * Copyright 2015 greatpwx@126.com, All rights reserved.
+ * Use is subject to license terms.
+ * https://github.com/monee1988/SpringMybatisWebInterceptor
+ */
 package com.monee1988.core.mybatis.spring;
 
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -14,7 +21,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by wangchaodz on 15-12-26.
+ * Created by codePWX on 15-12-26.
  * desc:
  */
 public class MybatisSqlSessionFactoryBean extends SqlSessionFactoryBean {

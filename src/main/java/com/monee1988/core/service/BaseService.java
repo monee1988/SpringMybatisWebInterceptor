@@ -1,3 +1,10 @@
+/**
+ * @(#){BaseService}.java 1.0 {15/12/26}
+ *
+ * Copyright 2015 greatpwx@126.com, All rights reserved.
+ * Use is subject to license terms.
+ * https://github.com/monee1988/SpringMybatisWebInterceptor
+ */
 package com.monee1988.core.service;
 
 import com.monee1988.core.entity.Account;
@@ -8,15 +15,15 @@ import java.util.List;
 
 /**
  * Created by codePWX on 15-12-26.
- * desc:
+ * desc: Service逻辑处理基本接口
  */
 public interface BaseService<T,PK extends Serializable> {
 
     /**
-     * 查询分页
-     * @param page 分页信息
-     * @param <> 参数对象
-     * @return 分页对象
+     * 分页查询
+     * @param page
+     * @param t
+     * @return
      */
     public Page<T> findPage(Page<T> page, T t);
 

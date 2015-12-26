@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact build-on-make="true" name="SpringMybatisWebInterceptor:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SpringMybatisWebInterceptor_jar</output-path>
+    <root id="root">
+      <element id="archive" name="SpringMybatisWebInterceptor.jar">
+        <element id="module-output" name="SpringMybatisWebInterceptor" />
+      </element>
+    </root>
+  </artifact>
+</component>
