@@ -35,7 +35,7 @@ public class BaseServiceImpl<T extends BaseBean<T>,PK extends Serializable,Dao e
     public Page<T> findPage(Page<T> page, T t) {
 
         t.setPage(page);
-        page.setResult(findList(t));
+        page.setResultList(findList(t));
 
         return page;
     }
