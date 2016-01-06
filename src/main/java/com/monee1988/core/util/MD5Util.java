@@ -9,6 +9,7 @@ package com.monee1988.core.util;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.UUID;
 
 /**
  * Created by codePWX on 15-12-26.
@@ -37,6 +38,10 @@ public class MD5Util {
         return  result;
     }
 
+    public static String createId(){
+    	return String.valueOf(UUID.randomUUID()).replaceAll("-", "");
+    } 
+    
     public static void main(String[] args){
 
         System.out.print(getMD5("adminpassword"));

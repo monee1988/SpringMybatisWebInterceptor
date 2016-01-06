@@ -8,10 +8,9 @@
 package com.monee1988.core.entity;
 
 
-import com.monee1988.core.util.MD5Util;
 import org.springframework.util.StringUtils;
 
-import java.security.MessageDigest;
+import com.monee1988.core.util.MD5Util;
 
 /**
  * Created by codePWX on 15-12-26.
@@ -19,7 +18,12 @@ import java.security.MessageDigest;
  */
 public class Account extends BaseBean<Account>{
 
-    private String userName;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private String userName;
 
     private String passWord;
 

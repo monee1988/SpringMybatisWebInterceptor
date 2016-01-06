@@ -19,7 +19,12 @@ import java.util.Date;
  */
 public class BaseBean<T> implements Serializable{
 
-    protected String id;//主键
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	protected String id;//主键
 
     protected Date createDate;//创建时间
 

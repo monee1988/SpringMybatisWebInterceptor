@@ -13,6 +13,8 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import com.monee1988.core.util.AjaxUtils;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -37,7 +39,7 @@ public class SystemWebLogInterceptor extends HandlerInterceptorAdapter{
 
         if(logger.isDebugEnabled()){
 
-            if(StringUtils.isEmpty(request.getHeader("x-requested-with"))){
+            if(AjaxUtils.isAjaxRequest(request)){
                 logger.debug("AJAX Request URL is [{}]",request.getRequestURI());
             }else{
                 logger.debug("VIEW Request URL is [{}]",request.getRequestURI());
