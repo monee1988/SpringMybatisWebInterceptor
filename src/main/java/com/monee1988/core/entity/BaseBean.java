@@ -40,10 +40,17 @@ public class BaseBean<T> implements Serializable{
 
     protected Page<T> page;
 
-    private static final String ROW_NORMAL = "0";//正常状态的数据状态
-    private static final String ROW_DELETE = "1";//删除状态的数据状态
+    public static final String ROW_NORMAL = "0";//正常状态的数据状态
+    public static final String ROW_DELETE = "1";//删除状态的数据状态
 
-    /**
+    public BaseBean() {
+    }
+    public BaseBean(String id) {
+    	this();
+    	this.id = id;
+    }
+
+	/**
      * 新增对象前基本参数赋值
      * @param account
      */
@@ -54,7 +61,22 @@ public class BaseBean<T> implements Serializable{
         this.updateAccount =account;
         this.rowState =ROW_NORMAL;
     }
+    
+    /**
+     * 新增对象前基本参数赋值
+     */
+    public void preInsert(){
+        this.createDate = new Date();
+        this.updateDate = this.createDate;
+        this.rowState =ROW_NORMAL;
+    }
 
+    /**
+     * 修改对象前基本参数赋值
+     */
+    public void preUpdate(){
+        this.updateDate = this.createDate;
+    }
     /**
      * 修改对象前基本参数赋值
      * @param account

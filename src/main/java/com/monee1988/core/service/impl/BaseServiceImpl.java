@@ -7,24 +7,21 @@
  */
 package com.monee1988.core.service.impl;
 
-import java.io.Serializable;
-import java.util.LinkedList;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.monee1988.core.dao.BaseDao;
 import com.monee1988.core.entity.Account;
 import com.monee1988.core.entity.BaseBean;
 import com.monee1988.core.entity.Page;
 import com.monee1988.core.service.BaseService;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.io.Serializable;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by codePWX on 15-12-26.
  * desc:
  */
-@Transactional(readOnly = true)
 public class BaseServiceImpl<T extends BaseBean<T>,PK extends Serializable,Dao extends BaseDao<T, PK>> implements BaseService<T,PK>{
 
 
@@ -35,7 +32,6 @@ public class BaseServiceImpl<T extends BaseBean<T>,PK extends Serializable,Dao e
     /**
      * 分页查询实现
      */
-    @Transactional(readOnly = true)
     public Page<T> findPage(Page<T> page, T t) {
 
         t.setPage(page);
@@ -47,7 +43,6 @@ public class BaseServiceImpl<T extends BaseBean<T>,PK extends Serializable,Dao e
     /**
      * 集合查询实现
      */
-    @Transactional(readOnly = true)
     public List<T> findList(T t) {
 
         return dao.findList(t);
@@ -56,7 +51,6 @@ public class BaseServiceImpl<T extends BaseBean<T>,PK extends Serializable,Dao e
     /**
      * 单实体查询实现
      */
-    @Transactional(readOnly = true)
     public T findEntity(PK id) {
 
         return dao.findEntityById(id);
@@ -65,7 +59,6 @@ public class BaseServiceImpl<T extends BaseBean<T>,PK extends Serializable,Dao e
     /**
      * 根据主键删除数据
      */
-    @Transactional(readOnly = false)
     public int deleteEntityById(PK id) {
 
         return dao.deleteById(id);
@@ -74,7 +67,6 @@ public class BaseServiceImpl<T extends BaseBean<T>,PK extends Serializable,Dao e
     /**
      * 根据主键集合删除数据
      */
-    @Transactional(readOnly = false)
     public int deleteEntityByIds(List<PK> ids) {
 
         return dao.deleteByIds(ids);
@@ -83,7 +75,6 @@ public class BaseServiceImpl<T extends BaseBean<T>,PK extends Serializable,Dao e
     /**
      * 根据外键删除数据
      */
-    @Transactional(readOnly = false)
     public int deleteEntityByFid(PK pid) {
 
         return dao.deleteByPId(pid);
@@ -92,8 +83,7 @@ public class BaseServiceImpl<T extends BaseBean<T>,PK extends Serializable,Dao e
     /**
      * 新增数据
      */
-    @Transactional(readOnly = false)
-    public int insertEntity(T t, Account account){
+    public int insertEntity(T t, Account account) {
 
         t.preInsert(account);
 
@@ -103,7 +93,6 @@ public class BaseServiceImpl<T extends BaseBean<T>,PK extends Serializable,Dao e
     /**
      * 批量新增数据
      */
-    @Transactional(readOnly = false)
     public int insertBachEntity(List<T> ts, Account account) {
 
         List<T> datas = new LinkedList<T>();
@@ -119,7 +108,6 @@ public class BaseServiceImpl<T extends BaseBean<T>,PK extends Serializable,Dao e
     /**
      * 更新数据
      */
-    @Transactional(readOnly = false)
     public int updateEntity(T t, Account account) {
 
         t.preUpdate(account);

@@ -7,8 +7,7 @@
  */
 package com.monee1988.core.entity;
 
-import org.springframework.util.StringUtils;
-
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -16,15 +15,22 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.util.StringUtils;
+
 /**
  * 分页对象
  * Created by codePWX on 15-12-26.
  * @param <T> Page中记录的类型.
  */
-public class Page<T> {
+public class Page<T> implements Serializable{
 
 
-    /*公共变量 默认正序**/
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/*公共变量 默认正序**/
     public static final String ASC = "asc";
 
     /*公共变量 默认倒序*/
