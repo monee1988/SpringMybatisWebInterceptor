@@ -128,12 +128,12 @@ public class Page<T> implements Serializable{
     	request.getParameterMap();
     	String pageNoStr = request.getParameter("pageNo");
 		String pageSizeStr = request.getParameter("pageSize");
-		if (StringUtils.isEmpty(pageNoStr)) {
+		if (!StringUtils.isEmpty(pageNoStr)&&!"null".equals(pageNoStr)) {
 			this.pageNo = Integer.valueOf(pageNoStr);
 		}else{
 			this.pageNo = DEFAULT_PAGENO;
 		}
-		if (StringUtils.isEmpty(pageSizeStr)) {
+		if (!StringUtils.isEmpty(pageSizeStr)&&!"null".equals(pageSizeStr)) {
 			this.pageSize = Integer.valueOf(pageSizeStr);
 		}else{
 			this.pageSize = DEFAULT_PAGESIZE;

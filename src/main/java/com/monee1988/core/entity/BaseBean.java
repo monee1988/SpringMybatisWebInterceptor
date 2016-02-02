@@ -8,10 +8,11 @@
 package com.monee1988.core.entity;
 
 
-import org.springframework.util.StringUtils;
-
 import java.io.Serializable;
 import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.util.StringUtils;
 
 /**
  * Created by codePWX on 15-12-26.
@@ -25,9 +26,11 @@ public class BaseBean<T> implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	protected String id;//主键
-
+	
+	@DateTimeFormat( pattern = "yyyy-MM-dd HH:mm:ss" )
     protected Date createDate;//创建时间
-
+	
+	@DateTimeFormat( pattern = "yyyy-MM-dd HH:mm:ss" )
     protected Date updateDate;//修改时间
 
     protected Account createAccount;//创建帐号

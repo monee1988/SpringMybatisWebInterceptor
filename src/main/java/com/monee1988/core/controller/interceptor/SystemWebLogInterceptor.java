@@ -7,6 +7,9 @@
  */
 package com.monee1988.core.controller.interceptor;
 
+import java.util.Map;
+import java.util.Map.Entry;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
@@ -34,13 +37,18 @@ public class SystemWebLogInterceptor extends HandlerInterceptorAdapter{
      * @return
      * @throws Exception
      */
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
         if(logger.isDebugEnabled()){
 
             if(AjaxUtils.isAjaxRequest(request)){
-                logger.debug("AJAX Request URL is [{}]",request.getRequestURI());
+				Map<String, Object> map = request.getParameterMap();
+            	for (Entry<String, Object> entry : map.entrySet()) {
+					System.out.println(entry.getKey()+":"+entry.getValue().toString());
+				}
+            	logger.debug("AJAX Request URL is [{}]",request.getRequestURI());
             }else{
                 logger.debug("VIEW Request URL is [{}]",request.getRequestURI());
             }

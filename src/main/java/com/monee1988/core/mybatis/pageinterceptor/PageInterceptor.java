@@ -9,7 +9,9 @@ package com.monee1988.core.mybatis.pageinterceptor;
 
 import cn.org.rapid_framework.ibatis3.plugin.OffsetLimitInterceptor;
 import cn.org.rapid_framework.jdbc.dialect.Dialect;
+
 import com.monee1988.core.entity.Page;
+
 import org.apache.ibatis.executor.CachingExecutor;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.executor.parameter.ParameterHandler;
@@ -38,6 +40,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.StringTokenizer;
 
 /**
  * 
@@ -149,7 +152,7 @@ public class PageInterceptor extends OffsetLimitInterceptor implements Intercept
 		
 		BoundSql boundSql = mappedStatement.getBoundSql(parameterObject);
 		String sql = boundSql.getSql();
-		String countSql = this.getCountSql(sql);
+		String countSql = removeBreakingWhitespace(this.getCountSql(sql));
 		List<ParameterMapping> parameterMappings = boundSql.getParameterMappings();
 		BoundSql countBoundSql = new BoundSql(mappedStatement.getConfiguration(), countSql,	parameterMappings, parameterObject);
 		ParameterHandler parameterHandler = new DefaultParameterHandler(mappedStatement, parameterObject, countBoundSql);
@@ -286,4 +289,14 @@ public class PageInterceptor extends OffsetLimitInterceptor implements Intercept
 		return null;
 		
 	}
+	
+	protected String removeBreakingWhitespace(String original) {
+	    StringTokenizer whitespaceStripper = new StringTokenizer(original);
+	    StringBuilder builder = new StringBuilder();
+	    while (whitespaceStripper.hasMoreTokens()) {
+	      builder.append(whitespaceStripper.nextToken());
+	      builder.append(" ");
+	    }
+	    return builder.toString();
+  }
 }
