@@ -44,10 +44,6 @@ public class SystemWebLogInterceptor extends HandlerInterceptorAdapter{
         if(logger.isDebugEnabled()){
 
             if(AjaxUtils.isAjaxRequest(request)){
-				Map<String, Object> map = request.getParameterMap();
-            	for (Entry<String, Object> entry : map.entrySet()) {
-					System.out.println(entry.getKey()+":"+entry.getValue().toString());
-				}
             	logger.debug("AJAX Request URL is [{}]",request.getRequestURI());
             }else{
                 logger.debug("VIEW Request URL is [{}]",request.getRequestURI());

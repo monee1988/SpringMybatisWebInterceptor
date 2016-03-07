@@ -128,4 +128,8 @@ public class Global{
 		return getConfig("projectName", "Monee");
 	}
 
+	public static void main(String[] args) {
+		Global global = Global.getInstance();
+		System.out.println(global.getAdminPath());
+	}
 }

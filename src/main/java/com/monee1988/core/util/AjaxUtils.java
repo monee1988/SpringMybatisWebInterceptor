@@ -1,6 +1,9 @@
 package com.monee1988.core.util;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 public class AjaxUtils {
 
@@ -14,5 +17,9 @@ public class AjaxUtils {
 	}
 	
 	private AjaxUtils() {}
+
+	public static void renderStringToJsonP(HttpServletResponse response,Map<String, Object> resultMap) {
+		
+	}
 
 }
