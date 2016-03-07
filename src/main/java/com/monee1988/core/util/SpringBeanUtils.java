@@ -14,10 +14,9 @@ public class SpringBeanUtils implements BeanFactoryAware {
     /** 
      * 注入BeanFactory实例 
      */ 
-    @Override 
-    public void setBeanFactory (BeanFactory beanFactory) throws BeansException { 
+    public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
         setBeanFactoryValue(beanFactory);
-    }
+	}
 
     private void setBeanFactoryValue(BeanFactory beanFactory) {
         SpringBeanUtils.beanFactory = beanFactory; 
@@ -51,4 +50,5 @@ public class SpringBeanUtils implements BeanFactoryAware {
     	
         return beanFactory.getBean(beanName, clazz); 
     }
+
  }

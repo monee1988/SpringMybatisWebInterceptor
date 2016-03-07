@@ -7,8 +7,8 @@
  */
 package com.monee1988.core.controller.interceptor;
 
-import java.util.Map;
-import java.util.Map.Entry;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,9 +17,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.monee1988.core.util.AjaxUtils;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * Created by codePWX on 15-12-26.
@@ -37,7 +34,6 @@ public class SystemWebLogInterceptor extends HandlerInterceptorAdapter{
      * @return
      * @throws Exception
      */
-    @SuppressWarnings("unchecked")
 	@Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
