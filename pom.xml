@@ -198,7 +198,7 @@
 	</dependencies>
 	
 	<build>
-		<finalName>smwModule</finalName>
+		<finalName>smwmodule</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
