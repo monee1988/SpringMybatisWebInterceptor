@@ -2,10 +2,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>SpringMybatisWebInterceptor</groupId>
-	<artifactId>com.monee1988</artifactId>
+	<groupId>com.monee1988</groupId>
+	<artifactId>smwmodule</artifactId>
 	<version>1.0-SNAPSHOT</version>
-	<packaging>jar</packaging>
 
 	<name>com.monee1988</name>
 	<url>http://maven.apache.org</url>
@@ -197,4 +196,20 @@
 		</dependency>
 
 	</dependencies>
+	
+	<build>
+		<finalName>smwModule</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
